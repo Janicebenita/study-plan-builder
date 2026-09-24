@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: study-plan-builder
+version: "1.0.0"
+description: Builds a balanced study schedule from topics, deadlines, difficulty, and available daily time.

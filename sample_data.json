@@ -1,0 +1,5 @@
+{"days": 5, "minutes_per_day": 60, "block_minutes": 30, "topics": [
+  {"name": "Algebra", "difficulty": 4, "confidence": 2, "days_left": 5},
+  {"name": "Physics", "difficulty": 5, "confidence": 3, "days_left": 3},
+  {"name": "English", "difficulty": 2, "confidence": 4, "days_left": 7}
+]}
