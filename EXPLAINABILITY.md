@@ -14,6 +14,14 @@ A known constraint is that self-reported difficulty and confidence are subjectiv
 
 ## Implementation in This Repository
 
-`app.py` reads the local study-plan JSON and deterministically allocates available time blocks according to each topic's difficulty, confidence, and remaining days. The sample data provides a reproducible plan, and `test_app.py` verifies scheduling and output behavior.
+The executable implementation is in `app.py`. `topic_weight(topic)` bounds difficulty, confidence, and days remaining and computes `difficulty × (6 - confidence) × (1 + 7 / days_left)`. `build_plan(data)` converts available days and minutes into blocks, proportionally allocates them by that weight, balances rounding, and distributes blocks across days.
 
-The implementation has no school-system or calendar write integration. It exposes the input weights and generated blocks so the learner can review and adjust the schedule when personal circumstances or course requirements change.
+`main()` reads `sample_data.json` or another supplied JSON plan, and `test_app.py` verifies the scheduling behavior. The implementation has no school-system or calendar write integration and exposes every topic weight and generated block for review.
+
+## Outputs and supporting evidence
+
+The output contains a day-by-day list of topic blocks and a summary of total blocks and block length. Each block retains its computed topic weight, providing the evidence for the allocation.
+
+## Uncertainty and human review
+
+Self-reported difficulty and confidence are subjective and unreported commitments are unknown. The learner must review and adjust the plan when circumstances or course requirements change.
