@@ -11,3 +11,9 @@ Inputs are a JSON plan containing available days, minutes per day, block length,
 ## Limits and known constraints
 
 A known constraint is that self-reported difficulty and confidence are subjective. The generated schedule cannot account for unreported commitments, learning disabilities, illness, or changes in course requirements, so the learner should review it.
+
+## Implementation in This Repository
+
+`app.py` reads the local study-plan JSON and deterministically allocates available time blocks according to each topic's difficulty, confidence, and remaining days. The sample data provides a reproducible plan, and `test_app.py` verifies scheduling and output behavior.
+
+The implementation has no school-system or calendar write integration. It exposes the input weights and generated blocks so the learner can review and adjust the schedule when personal circumstances or course requirements change.
